@@ -2,9 +2,9 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## What is Tome?
+## What is Scribe?
 
-Tome is a macOS-only CLI for managing Apple Notes from the terminal. It provides subcommands for listing, searching, creating, and editing notes, plus an interactive TUI mode (default when run with no arguments). All Notes interactions happen via AppleScript executed through `osascript`.
+Scribe is a macOS-only CLI for managing Apple Notes from the terminal. It provides subcommands for listing, searching, creating, and editing notes, plus an interactive TUI mode (default when run with no arguments). All Notes interactions happen via AppleScript executed through `osascript`.
 
 ## Build & Development Commands
 
@@ -36,9 +36,9 @@ Six source files in `src/`:
 
 - **main.rs** — CLI entry point using clap derive macros. Defines subcommands (`list`, `show`, `search`, `new`, `edit`, `folders`, `folder {new,rename,delete}`) and dispatches to the appropriate module. No subcommand launches the TUI. Resolves theme from CLI `--theme` flag → config file → default ("synthwave").
 - **notes.rs** — Apple Notes backend. All interaction goes through `run_applescript()` which shells out to `osascript`. Notes are parsed from AppleScript output using `|||` as a delimiter. Writes convert plaintext to HTML (`\n` → `<br>`). String escaping via `escape_applescript()` is critical for correctness.
-- **editor.rs** — Spawns `$EDITOR` (default: vim) with a temp file (`{temp_dir}/tome_{filename}`), reads back the result, then cleans up.
+- **editor.rs** — Spawns `$EDITOR` (default: vim) with a temp file (`{temp_dir}/scribe_{filename}`), reads back the result, then cleans up.
 - **tui.rs** — Interactive browse/search mode built with ratatui + crossterm. Two modes: Browse (j/k navigation) and Search (incremental filtering). Manages raw mode and alternate screen, restoring terminal state before launching the editor and on exit.
-- **config.rs** — Loads/saves TOML config from `$XDG_CONFIG_HOME/tome/config.toml` (or `~/.config/tome/config.toml`). Currently stores the preferred theme.
+- **config.rs** — Loads/saves TOML config from `$XDG_CONFIG_HOME/scribe/config.toml` (or `~/.config/scribe/config.toml`). Currently stores the preferred theme.
 - **theme.rs** — Defines `Theme` struct (border, accent, text colors) and a static `ALL_THEMES` table. Available themes: synthwave (default), monochrome, ocean, sunset, forest, tokyo night moon.
 
 ## Key Patterns

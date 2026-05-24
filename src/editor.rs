@@ -7,7 +7,7 @@ pub fn edit(content: &str, filename: &str) -> Result<String> {
     let editor = env::var("EDITOR").unwrap_or_else(|_| "vim".to_string());
     let temp_dir = env::temp_dir();
     let safe_filename = filename.replace('/', "_");
-    let temp_file = temp_dir.join(format!("tome_{safe_filename}"));
+    let temp_file = temp_dir.join(format!("scribe_{safe_filename}"));
 
     fs::write(&temp_file, content).context("Failed to write temp file")?;
 

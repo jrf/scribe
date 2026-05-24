@@ -328,7 +328,7 @@ fn run_loop(terminal: &mut DefaultTerminal, app: &mut App) -> Result<()> {
                     KeyCode::Char('n') => {
                         ratatui::restore();
 
-                        if let Ok(edited) = editor::edit("", "tome_new.md") {
+                        if let Ok(edited) = editor::edit("", "scribe_new.md") {
                             let edited = edited.trim().to_string();
                             if !edited.is_empty() {
                                 let (title, body) = edited

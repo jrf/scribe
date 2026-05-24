@@ -1,4 +1,4 @@
-# tome
+# scribe
 
 [![Rust](https://img.shields.io/badge/rust-stable-orange?logo=rust)](https://www.rust-lang.org/)
 [![Swift](https://img.shields.io/badge/swift-6.2+-F05138?logo=swift&logoColor=white)](https://swift.org/)
@@ -20,36 +20,36 @@ This builds a release binary and copies it to `~/.local/bin/`.
 
 ```sh
 # List all notes
-tome list
+scribe list
 
 # List notes in a specific folder
-tome list --folder "Work"
+scribe list --folder "Work"
 
 # Show a note's contents
-tome show "Shopping List"
+scribe show "Shopping List"
 
 # Full-text search across all notes
-tome search "meeting agenda"
+scribe search "meeting agenda"
 
 # Create a new note in $EDITOR
-tome new "My Note" -e
+scribe new "My Note" -e
 
 # Create a new note from stdin
-echo "Remember to buy milk" | tome new "Groceries"
+echo "Remember to buy milk" | scribe new "Groceries"
 
 # Edit an existing note in $EDITOR
-tome edit "Shopping List"
+scribe edit "Shopping List"
 
 # List all folders
-tome folders
+scribe folders
 
 # Launch interactive TUI (default when run with no arguments)
-tome
+scribe
 ```
 
 ### Interactive TUI
 
-Running `tome` with no arguments opens an interactive terminal UI for browsing and managing notes.
+Running `scribe` with no arguments opens an interactive terminal UI for browsing and managing notes.
 
 | Key | Action |
 |-----|--------|
@@ -62,7 +62,7 @@ Running `tome` with no arguments opens an interactive terminal UI for browsing a
 
 ## How it works
 
-Tome talks to Apple Notes via AppleScript. Notes are fetched as plaintext, opened in your `$EDITOR`, and written back as HTML.
+Scribe talks to Apple Notes via AppleScript. Notes are fetched as plaintext, opened in your `$EDITOR`, and written back as HTML.
 
 Rich content (checklists, drawings, attachments) gets flattened to plaintext on edit — best suited for text-heavy notes.
 

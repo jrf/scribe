@@ -16,11 +16,11 @@ fn config_path() -> PathBuf {
 
 fn dirs_or_default() -> PathBuf {
     if let Some(config) = std::env::var_os("XDG_CONFIG_HOME") {
-        PathBuf::from(config).join("tome")
+        PathBuf::from(config).join("scribe")
     } else if let Some(home) = std::env::var_os("HOME") {
-        PathBuf::from(home).join(".config").join("tome")
+        PathBuf::from(home).join(".config").join("scribe")
     } else {
-        PathBuf::from(".config").join("tome")
+        PathBuf::from(".config").join("scribe")
     }
 }
 

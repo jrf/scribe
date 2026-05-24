@@ -14,12 +14,12 @@ run:
 
 # Install to ~/.local/bin
 install: release
-    cp target/release/tome ~/.local/bin/
-    codesign --force --sign - target/release/tome
+    cp target/release/scribe ~/.local/bin/
+    codesign --force --sign - target/release/scribe
 
 # Uninstall from ~/.local/bin
 uninstall:
-    rm -f ~/.local/bin/tome
+    rm -f ~/.local/bin/scribe
 
 # Remove build artifacts
 clean:
